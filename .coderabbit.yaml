@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# Central CodeRabbit Configuration for @JWEB0689 repositories
+
+language: "en-US"
+early_access: false
+enable_free_tier: true
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  collapse_walkthrough: false
+  auto_title_placeholder: "@coderabbitai"
+  
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: true
+    ignore_title_keywords:
+      - "WIP"
+      - "[WIP]"
+      - "draft"
+      
+  path_filters:
+    - "!**/*.lock"
+    - "!**/package-lock.json"
+    - "!**/Cargo.lock"
+    - "!**/yarn.lock"
+    - "!**/pnpm-lock.yaml"
+    - "!**/*.min.*"
+    - "!**/*.map"
+    - "!**/*.svg"
+    - "!**/*.png"
+    - "!**/*.jpg"
+    - "!**/*.jpeg"
+    - "!**/*.gif"
+    - "!**/*.ico"
+    - "!**/*.pdf"
+    - "!**/*.bin"
+    - "!**/*.wasm"
+    - "!**/*.exe"
+    - "!**/*.msi"
+    - "!**/*.dmg"
+    - "!**/*.zip"
+    - "!**/*.tar.gz"
+    - "!**/*.db"
+    - "!dist/**"
+    - "!build/**"
+    - "!target/**"
+    - "!node_modules/**"
+    - "!vendor/**"
+    - "!**/.DS_Store"
+
+  path_instructions:
+    - path: "**/*.{sh,bash}"
+      instructions: "Ensure scripts use set -euo pipefail when appropriate, variables are properly double-quoted, and POSIX/shell portability is respected."
+    - path: "**/*.py"
+      instructions: "Review for idiomatic PEP 8 Python, type hints, proper exception handling, and avoidance of resource leaks."
+    - path: "**/*.{ts,tsx,js,jsx}"
+      instructions: "Check for clean TypeScript types without unnecessary 'any', proper React hook dependencies, and async/await error handling."
+    - path: "**/*.rs"
+      instructions: "Ensure idiomatic Rust patterns, avoid unnecessary unwrap/expect in production paths, and check for safe memory and concurrency practices."
+    - path: "**/*.{c,cpp,h,hpp}"
+      instructions: "Review for memory bounds, pointer validity, resource allocation/deallocation hygiene, and kernel/OS safety."
+
+  tools:
+    shellcheck:
+      enabled: true
+    markdownlint:
+      enabled: true
+    gitleaks:
+      enabled: true
+
+chat:
+  auto_reply: true
